@@ -46,14 +46,14 @@ WORKDIR  /workspace/hello_world
 docker-compose.yml
 
 ```
-  frontend:
+  node:
     build:
-      dockerfile: ./Frontend/DockerFile
-    container_name: frontend
+      dockerfile: ./.devcontainer/node/DockerFile
+    container_name: hello_world
     stdin_open: true
     tty: true
     volumes:
-      - ./Frontend:/workspace/resume/Frontend
+      - ./:/workspace/hello_world
     ports:
       - 3001:3000
     depends_on:
