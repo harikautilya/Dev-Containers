@@ -1,0 +1,15 @@
+{
+	"name": "bun",
+	"dockerComposeFile": [
+		"../../docker-compose.yml"
+	],
+	"service": "bun",
+	"workspaceFolder": "/workspace/project",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"oven.bun-vscode"
+			]
+		}
+	}
+}

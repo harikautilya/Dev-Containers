@@ -1,66 +1,21 @@
-version: '3'
 services:
-
-  frontend:
+  node:
     build:
-      dockerfile: ./Frontend/DockerFile
-    container_name: frontend
+      dockerfile: ./.devcontainer/node/DockerFile
+    container_name: node
     stdin_open: true
     tty: true
-    volumes:
-      - ./Frontend:/workspace/resume/Frontend
-      - .git:/workspace/resume/.git
-      - ./TODO:/workspace/resume/TODO
-      - ./Readme.md:/workspace/resume/Readme.md
-    ports:
-      - 3001:3000
-    depends_on:
-      - meta
-
-  backend:
+  bun:
     build:
-      dockerfile: ./Backend/DockerFile
-    container_name: backend
-    command: ["bash", "-c", "cd /workspace/resume/Backend && bun run dev"]
+      dockerfile: ./.devcontainer/bun/DockerFile
+    container_name: bun
     stdin_open: true
     tty: true
-    ports:
-      - 8001:8000
-    volumes:
-      - ./Backend:/workspace/resume/Backend
-      - ./db:/workspace/resume/db
-      - .git:/workspace/resume/.git
-      - ./TODO:/workspace/resume/TODO
-      - ./Readme.md:/workspace/resume/Readme.md
-    depends_on:
-      - mysql_viewer
-
-
-  meta:
+  java:
     build: 
-      dockerfile: ./meta/DockerFile
-    container_name: meta
-    command: ["bash", "-c", "cd ./meta && mvn exec:java -Dexec.mainClass=com.crateinha.meta.App"]
+      dockerfile: ./.devcontainer/java/DockerFile
+    container_name: java
     stdin_open: true
     tty: true
-    ports:
-      - 8002:8000
-    volumes:
-      - ./meta:/workspace/resume/meta
-      - .git:/workspace/resume/.git
-      - ./TODO:/workspace/resume/TODO
-      - ./Readme.md:/workspace/resume/Readme.md
 
-  mysql_viewer:
-    image: dbeaver/cloudbeaver
-    container_name: cloudbeaver
-    environment:
-      - PUID=197609
-      - PGID=197121
-      - TZ=Etc/UTC
-    volumes:
-      - ../db/config:/opt/cloudbeaver/workspace
-    ports:
-      - 8978:8978
-    cap_add:
-      - IPC_LOCK
+

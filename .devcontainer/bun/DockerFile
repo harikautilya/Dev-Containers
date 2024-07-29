@@ -1,0 +1,10 @@
+FROM oven/bun:1
+
+# This is need for primsa to work. Need to figure out later how to make this work
+COPY --from=node:18 /usr/local/bin/node /usr/local/bin/node
+
+
+WORKDIR  /workspace/project
+
+
+CMD ["bash"]
