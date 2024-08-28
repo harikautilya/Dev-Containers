@@ -17,5 +17,11 @@ services:
     container_name: java
     stdin_open: true
     tty: true
+  rust:
+    build: 
+      dockerfile: ./.devcontainer/rust/DockerFile
+    container_name: rust
+    stdin_open: true
+    tty: true
 
 
