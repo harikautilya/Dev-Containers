@@ -1,9 +1,9 @@
 {
-	"name": "Node",
+	"name": "Python",
 	"dockerComposeFile": [
 		"../../docker-compose.yml"
 	],
-	"service": "node",
+	"service": "python",
 	"workspaceFolder": "/workspace/project",
 	"customizations": {
 		"vscode": {

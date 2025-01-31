@@ -23,5 +23,11 @@ services:
     container_name: rust
     stdin_open: true
     tty: true
+  python:
+    build: 
+      dockerfile: ./.devcontainer/python/DockerFile
+    container_name: python
+    stdin_open: true
+    tty: true
 
 
